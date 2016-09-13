@@ -9,4 +9,13 @@ def xa_to_diameter(xa):
     to diameters with commensurate units
     '''
     # Compute diameter from
-    diameter = 
+    diameter = np.sqrt(xa * 4 /np.pi)
+    return diameter
+
+def easy_reshape(obj, ncols, order='C'):
+    '''
+    Guarantee reshaping works by defining only one shape parameter
+    '''
+
+    arr = np.reshape(obj, (ncols, len(obj)/ncols), order)
+    return arr
