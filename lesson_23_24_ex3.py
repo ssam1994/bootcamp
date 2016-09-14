@@ -26,5 +26,12 @@ plt.plot(x_low, y_low, marker='.', linestyle='none', markersize=20, alpha=0.8)
 plt.xlabel('Cross-sectional area (µm)')
 plt.ylabel('eCDF')
 plt.legend(('high food', 'low food'), loc='lower right')
+
+x = np.linspace(1600, 2500, 400)
+cdf_high = scipy.stats.norm.cdf(x, loc=np.mean(xa_high), scale=np.std(xa_high))
+cdf_low = scipy.stats.norm.cdf(x, loc=np.mean(xa_low), scale=np.std(xa_low))
+
+plt.plot(x, cdf_high, color='gray')
+plt.plot(x, cdf_low, color='gray')
 plt.show()
 plt.close()
